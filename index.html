@@ -11,6 +11,17 @@
 <p>
 			<pre><a id="a1" href="#about" class="waves-effect">About</a>   <a id="a1" href="#skills" class="waves-effect">Skills</a>   <a id="a1" href="#project" class="waves-effect">Projects</a></pre></p>
 			</center></div>
+	<script>
+window.onscroll = function() {myFunction()};
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+} </script>
 	<center>
   		<img src="https://cn.opendesktop.org/img//hive/content-pre1/174365-1.jpg" alt="Snow" style="width:100%;">
 		<h1><font face="arial" size="30">SHAURYA MUKHOPADHYAY</font></h1>
