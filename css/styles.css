@@ -37,6 +37,9 @@ button {
   text-decoration: none;
   text-transform: uppercase;
 }
+#div1 {
+	background-color: #04327c;
+}
 
 button:hover, a:hover {
   opacity: 0.7;
