@@ -19,18 +19,18 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;ba
 </style></head>
 <body><main class="wrap">
 <header class="top"><div class="brand">CHARACTER<span>GUESSER</span></div><div class="tag">BETA</div></header>
-<section class="hero"><div class="eyebrow">ONE CHARACTER · TEN GUESSES</div><h1>GUESS THE CHARACTER</h1><p>How well do you really know your favourite worlds?</p></section>
+<section class="hero"><div class="eyebrow">ONE CHARACTER · TWENTY GUESSES</div><h1>GUESS THE CHARACTER</h1><p>How well do you really know your favourite worlds?</p></section>
 <section class="panel"><div class="eyebrow">SELECT YOUR FRANCHISE</div><div class="franchises">
 <button class="franchise active" id="hpBtn"><span class="icon">✦</span><span><strong>Wizarding World</strong><small>Novels and the Fantastic Beasts Films</small></span></button>
 <button class="franchise" disabled><span class="icon">⚔</span><span><strong>Middle-Earth</strong><small>From the Shire to Mordor</small></span><span class="status soon">WORK IN PROGRESS</span></button>
 <button class="franchise" disabled><span class="icon">♜</span><span><strong>A Song of Ice and Fire</strong><small>Seven Kingdoms and beyond</small></span><span class="status soon">WORK IN PROGRESS</span></button>
 </div></section>
 <section class="panel" id="game">
-<div class="gamehead"><h2>✦ WIZARDING WORLD CHALLENGE</h2><div class="attempts" id="attempts">10 GUESSES REMAINING</div></div>
+<div class="gamehead"><h2>✦ WIZARDING WORLD CHALLENGE</h2><div class="attempts" id="attempts">20 GUESSES REMAINING</div></div>
 <div class="progress"><i id="bar"></i></div>
 <div class="searchrow"><div class="searchbox"><input id="guessInput" autocomplete="off" placeholder="Type a character name…" aria-label="Guess a character"><div class="suggest" id="suggest"></div></div><button class="btn" id="guessBtn">SUBMIT GUESS</button></div>
 <div class="legend"><span><i class="dot green"></i>Correct</span><span><i class="dot yellow"></i>Partial / related</span><span><i class="dot red"></i>Incorrect</span></div><div style="color:var(--muted);font-size:14px;margin-top:-7px">First appearance shows the full Harry Potter book title or the Fantastic Beasts film title.</div>
-<div class="history" id="history"><div class="empty">Your guesses will appear here.<br>Choose wisely — you only have ten.</div></div>
+<div class="history" id="history"><div class="empty">Your guesses will appear here.<br>Choose wisely — you only have twenty.</div></div>
 <div class="result" id="result"><h3 id="resultTitle"></h3><p id="resultText"></p><button class="btn" id="restart" style="margin-top:15px">PLAY ANOTHER ROUND</button></div>
 </section>
 <p class="foot">CHARACTERGUESSER · A FAN-MADE TRIVIA GAME · HARRY POTTER NOVELS + FANTASTIC BEASTS FILMS</p>
@@ -54,9 +54,9 @@ const characters=[
 ["Percy Weasley","Human","Male","Gryffindor","Pure-blood","Ministry of Magic; Hogwarts",1],
 ["Molly Weasley","Human","Female","Gryffindor","Pure-blood","Order of the Phoenix",1],
 ["Arthur Weasley","Human","Male","Gryffindor","Pure-blood","Order of the Phoenix; Ministry of Magic",1],
-["Vernon Dursley","Muggle","Male","None","Muggle","Dursley family",1],
-["Petunia Dursley","Muggle","Female","None","Muggle","Dursley family",1],
-["Dudley Dursley","Muggle","Male","None","Muggle","Dursley family",1],
+["Vernon Dursley","Human","Male","None","Muggle","Dursley family",1],
+["Petunia Dursley","Human","Female","None","Muggle","Dursley family",1],
+["Dudley Dursley","Human","Male","None","Muggle","Dursley family",1],
 ["Quirinus Quirrell","Human","Male","Unknown","Unknown","Hogwarts; Voldemort's followers",1],
 ["Argus Filch","Squib","Male","None","Unknown","Hogwarts",1],
 ["Peeves","Poltergeist","Unknown","None","Not applicable","Hogwarts",1],
@@ -164,11 +164,11 @@ const characters=[
 ["Perenelle Flamel","Human","Female","Unknown","Unknown","Alchemist; Flamel family",1],
 ["Dedalus Diggle","Human","Male","Hufflepuff","Unknown","Order of the Phoenix",1],
 ["Doris Crockford","Human","Female","Unknown","Unknown","Muggle; Leaky Cauldron visitor",1],
-["Jim McGuffin","Muggle","Male","None","Muggle","Muggle weather presenter",1],
-["Piers Polkiss","Muggle","Male","None","Muggle","Dudley Dursley's gang",1],
-["Yvonne","Muggle","Female","None","Muggle","Dursley family acquaintance",1],
-["Marge Dursley","Muggle","Female","None","Muggle","Dursley family",3],
-["Colonel Fubster","Muggle","Male","None","Muggle","Marge Dursley's neighbour",3],
+["Jim McGuffin","Human","Male","None","Muggle","Muggle weather presenter",1],
+["Piers Polkiss","Human","Male","None","Muggle","Dudley Dursley's gang",1],
+["Yvonne","Human","Female","None","Muggle","Dursley family acquaintance",1],
+["Marge Dursley","Human","Female","None","Muggle","Dursley family",3],
+["Colonel Fubster","Human","Male","None","Muggle","Marge Dursley's neighbour",3],
 ["Mrs Figg","Squib","Female","None","Unknown","Order of the Phoenix",1],
 ["Mr Borgin","Human","Male","Unknown","Unknown","Borgin and Burkes",2],
 ["Caractacus Burke","Human","Male","Unknown","Unknown","Borgin and Burkes",6],
@@ -234,7 +234,7 @@ const characters=[
 ["Griselda Marchbanks","Human","Female","Unknown","Unknown","Wizengamot; Wizarding Examinations Authority",5],
 ["Tofty","Human","Male","Unknown","Unknown","Wizarding Examinations Authority",5],
 ["Amos Diggory","Human","Male","Unknown","Pure-blood","Department for the Regulation and Control of Magical Creatures",4],
-["Frank Bryce","Muggle","Male","None","Muggle","Riddle House groundskeeper",4],
+["Frank Bryce","Human","Male","None","Muggle","Riddle House groundskeeper",4],
 ["Bertha Jorkins","Human","Female","Unknown","Unknown","Ministry of Magic",4],
 ["Ludo Bagman's mother","Human","Female","Unknown","Unknown","Bagman family",4],
 ["Barty Crouch Sr.","Human","Male","Unknown","Pure-blood","Ministry of Magic",4],
@@ -267,9 +267,9 @@ const characters=[
 ["Agatha Timms","Human","Female","Unknown","Unknown","Quidditch World Cup spectator",4],
 ["Archie","Human","Male","Unknown","Unknown","Quidditch World Cup spectator",4],
 ["Apollyon Pringle","Human","Male","Unknown","Unknown","Former Hogwarts caretaker",1],
-["Mr Roberts","Muggle","Male","None","Muggle","Quidditch World Cup campsite manager",4],
-["Mrs Roberts","Muggle","Female","None","Muggle","Quidditch World Cup campsite manager's wife",4],
-["Muggle Prime Minister","Muggle","Male","None","Muggle","British government",6],
+["Mr Roberts","Human","Male","None","Muggle","Quidditch World Cup campsite manager",4],
+["Mrs Roberts","Human","Female","None","Muggle","Quidditch World Cup campsite manager's wife",4],
+["Muggle Prime Minister","Human","Male","None","Muggle","British government",6],
 ["John Dawlish","Human","Male","Unknown","Unknown","Aurors; Ministry of Magic",5],
 ["Gawain Robards","Human","Male","Unknown","Unknown","Aurors; Ministry of Magic",6],
 ["Dirk Cresswell","Human","Male","Unknown","Muggle-born","Ministry of Magic; goblin liaison",7],
@@ -291,10 +291,10 @@ const characters=[
 ["Bilius Weasley","Human","Male","Unknown","Pure-blood","Weasley family",4],
 ["Fleur's grandmother","Veela","Female","None","Not applicable","Delacour family",4],
 ["Gabrielle Delacour","Human (part-Veela)","Female","None (Beauxbatons)","Unknown","Delacour family",4],
-["Vernon Dursley's sister","Muggle","Female","None","Muggle","Dursley family",1],
-["Mr Mason","Muggle","Male","None","Muggle","Dursley dinner guests",2],
-["Mrs Mason","Muggle","Female","None","Muggle","Dursley dinner guests",2],
-["Dennis (Dursley neighbour)","Muggle","Male","None","Muggle","Dursley neighbourhood",1],
+["Vernon Dursley's sister","Human","Female","None","Muggle","Dursley family",1],
+["Mr Mason","Human","Male","None","Muggle","Dursley dinner guests",2],
+["Mrs Mason","Human","Female","None","Muggle","Dursley dinner guests",2],
+["Dennis (Dursley neighbour)","Human","Male","None","Muggle","Dursley neighbourhood",1],
 ["Grindelwald's victim Gregorovitch","Human","Male","Unknown","Unknown","Wandmaker",7],
 ["Miriam Strout","Human","Female","Unknown","Unknown","St Mungo's Healer",5],
 ["Broderick Bode","Human","Male","Unknown","Unknown","Department of Mysteries",5],
@@ -374,24 +374,24 @@ const characters=[
 ["Aragog's wife Mosag","Acromantula","Female","None","Not applicable","Forbidden Forest",2],
 ["Shelob?","Unknown","Unknown","Unknown","Unknown","Not applicable",7],
 ["Tina Goldstein","Human","Female","Unknown","Unknown","MACUSA; Auror Office; Newt Scamander's allies","Fantastic Beasts and Where to Find Them (film)"],
-["Jacob Kowalski","Muggle","Male","None","Muggle","Kowalski Bakery; Newt Scamander's allies; Dumbledore's team","Fantastic Beasts and Where to Find Them (film)"],
+["Jacob Kowalski","Human","Male","None","Muggle","Kowalski Bakery; Newt Scamander's allies; Dumbledore's team","Fantastic Beasts and Where to Find Them (film)"],
 ["Queenie Goldstein","Human","Female","Unknown","Unknown","MACUSA; Grindelwald's acolytes (formerly); Newt Scamander's allies","Fantastic Beasts and Where to Find Them (film)"],
-["Mary Lou Barebone","Muggle","Female","None","Muggle","New Salem Philanthropic Society; Barebone family","Fantastic Beasts and Where to Find Them (film)"],
+["Mary Lou Barebone","Human","Female","None","Muggle","New Salem Philanthropic Society; Barebone family","Fantastic Beasts and Where to Find Them (film)"],
 ["Credence Barebone (Aurelius Dumbledore)","Obscurial (Human)","Male","Unknown","Unknown","Barebone family; Dumbledore family; Grindelwald's acolytes (formerly)","Fantastic Beasts and Where to Find Them (film)"],
-["Modesty Barebone","Muggle","Female","None","Muggle","Barebone family; New Salem Philanthropic Society","Fantastic Beasts and Where to Find Them (film)"],
+["Modesty Barebone","Human","Female","None","Muggle","Barebone family; New Salem Philanthropic Society","Fantastic Beasts and Where to Find Them (film)"],
 ["Seraphina Picquery","Human","Female","Unknown","Unknown","MACUSA; President of MACUSA","Fantastic Beasts and Where to Find Them (film)"],
-["Henry Shaw Snr","Muggle","Male","None","Muggle","Shaw family; New York newspaper publisher","Fantastic Beasts and Where to Find Them (film)"],
-["Langdon Shaw","Muggle","Male","None","Muggle","Shaw family","Fantastic Beasts and Where to Find Them (film)"],
-["Henry Shaw Jnr","Muggle","Male","None","Muggle","Shaw family; United States Senate","Fantastic Beasts and Where to Find Them (film)"],
+["Henry Shaw Snr","Human","Male","None","Muggle","Shaw family; New York newspaper publisher","Fantastic Beasts and Where to Find Them (film)"],
+["Langdon Shaw","Human","Male","None","Muggle","Shaw family","Fantastic Beasts and Where to Find Them (film)"],
+["Henry Shaw Jnr","Human","Male","None","Muggle","Shaw family; United States Senate","Fantastic Beasts and Where to Find Them (film)"],
 ["Abernathy","Human","Male","Unknown","Unknown","MACUSA; Grindelwald's acolytes","Fantastic Beasts and Where to Find Them (film)"],
-["Chastity Barebone","Muggle","Female","None","Muggle","Barebone family; New Salem Philanthropic Society","Fantastic Beasts and Where to Find Them (film)"],
+["Chastity Barebone","Human","Female","None","Muggle","Barebone family; New Salem Philanthropic Society","Fantastic Beasts and Where to Find Them (film)"],
 ["Leta Lestrange","Human","Female","Slytherin","Pure-blood","Lestrange family; Hogwarts; Scamander family","Fantastic Beasts and Where to Find Them (film)"],
 ["Percival Graves","Human","Male","Unknown","Unknown","MACUSA; Director of Magical Security","Fantastic Beasts and Where to Find Them (film)"],
 ["Gnarlak","Goblin","Male","None","Not applicable","The Blind Pig; New York goblin underworld","Fantastic Beasts and Where to Find Them (film)"],
 ["Madam Ya Zhou","Human","Female","Unknown","Unknown","MACUSA; Chinese wizarding delegation","Fantastic Beasts and Where to Find Them (film)"],
 ["Emmi (Blind Pig singer)","Unknown","Female","Unknown","Unknown","The Blind Pig","Fantastic Beasts and Where to Find Them (film)"],
 ["Sam the Obliviator","Human","Male","Unknown","Unknown","MACUSA; Obliviators","Fantastic Beasts and Where to Find Them (film)"],
-["Mrs Esposito","Muggle","Female","None","Muggle","New York Muggle community","Fantastic Beasts and Where to Find Them (film)"],
+["Mrs Esposito","Human","Female","None","Muggle","New York Muggle community","Fantastic Beasts and Where to Find Them (film)"],
 ["Frank (Thunderbird)","Thunderbird","Male","None","Not applicable","Newt Scamander; Newt's creatures","Fantastic Beasts and Where to Find Them (film)"],
 ["Pickett (Bowtruckle)","Bowtruckle","Unknown","None","Not applicable","Newt Scamander; Newt's creatures","Fantastic Beasts and Where to Find Them (film)"],
 ["Dougal (Demiguise)","Demiguise","Unknown","None","Not applicable","Newt Scamander; Newt's creatures","Fantastic Beasts and Where to Find Them (film)"],
@@ -420,11 +420,11 @@ const characters=[
 ["Ida Webb","Human","Female","Unknown","Unknown","British wizarding delegation; International Confederation of Wizards","Fantastic Beasts: The Secrets of Dumbledore (film)"],
 ["Victor (French Minister)","Human","Male","Unknown","Unknown","French Ministry of Magic","Fantastic Beasts: The Secrets of Dumbledore (film)"],
 ["Karl (Dark-Eyed Waiter)","Human","Male","Unknown","Unknown","Wizarding community","Fantastic Beasts: The Secrets of Dumbledore (film)"],
-["Albert (Baker)","Muggle","Male","None","Muggle","Kowalski Bakery","Fantastic Beasts: The Secrets of Dumbledore (film)"],
+["Albert (Baker)","Human","Male","None","Muggle","Kowalski Bakery","Fantastic Beasts: The Secrets of Dumbledore (film)"],
 ["Teddy (Niffler)","Niffler","Male","None","Not applicable","Newt Scamander; Newt's creatures","Fantastic Beasts: The Secrets of Dumbledore (film)"],
 ["Nagini","Maledictus (Human/Snake)","Female","Unknown","Unknown","Circus Arcanus; Grindelwald's acolytes (formerly); Voldemort",4],
 ["Red","Goblin","Male","None","Not applicable","MACUSA; MACUSA bellboy","Fantastic Beasts and Where to Find Them (film)"],
-["Mr. Bingley","Muggle","Male","None","Muggle","New York bank; No-Maj community","Fantastic Beasts and Where to Find Them (film)"],
+["Mr. Bingley","Human","Male","None","Muggle","New York bank; No-Maj community","Fantastic Beasts and Where to Find Them (film)"],
 ["Momolu Wotorson","Human","Male","Unknown","Unknown","MACUSA; American wizarding community","Fantastic Beasts and Where to Find Them (film)"],
 ["Heinrich Eberstadt","Human","Male","Unknown","Unknown","Wizarding community","Fantastic Beasts and Where to Find Them (film)"],
 ["Beryl","Human","Female","Unknown","Unknown","MACUSA","Fantastic Beasts and Where to Find Them (film)"],
@@ -456,10 +456,10 @@ const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").re
 let answer,tries,done,used=[];
 const input=document.getElementById('guessInput'),suggest=document.getElementById('suggest');
 const labels=["Character","Species","Gender","House","Blood status","Affiliations","First appearance"];
-function start(){tries=0;done=false;used=[];answer=roster[Math.floor(Math.random()*roster.length)];document.getElementById('history').innerHTML='<div class="empty">Your guesses will appear here.<br>Choose wisely — you only have ten.</div>';document.getElementById('result').style.display='none';input.disabled=false;document.getElementById('guessBtn').disabled=false;input.value='';update();}
-function update(){document.getElementById('attempts').textContent=(10-tries)+' GUESSES REMAINING';document.getElementById('bar').style.width=(tries*10)+'%';}
+function start(){tries=0;done=false;used=[];answer=roster[Math.floor(Math.random()*roster.length)];document.getElementById('history').innerHTML='<div class="empty">Your guesses will appear here.<br>Choose wisely — you only have twenty.</div>';document.getElementById('result').style.display='none';input.disabled=false;document.getElementById('guessBtn').disabled=false;input.value='';update();}
+function update(){document.getElementById('attempts').textContent=(20-tries)+' GUESSES REMAINING';document.getElementById('bar').style.width=(tries*5)+'%';}
 function feedback(guess,key){const a=guess[key],b=answer[key];if(a===b)return 'ok';if(key==='aff' && a.split('; ').some(x=>b.split('; ').includes(x)))return 'partial';if(key==='book' && typeof a==='number' && typeof b==='number' && Math.abs(a-b)===1)return 'partial';if(key==='house' && (a==='Unknown'||b==='Unknown'))return 'partial';if(key==='blood' && (a==='Unknown'||b==='Unknown'||a==='Not applicable'||b==='Not applicable'))return 'partial';if(key==='gender'&&(a==='Unknown'||b==='Unknown'))return 'partial';return 'no';}
-function addGuess(g){if(done)return;if(used.includes(g.name)){input.value='';return;}used.push(g.name);tries++;const keys=['name','species','gender','house','blood','aff','book'];const row=document.createElement('div');row.className='guess';keys.forEach((k,i)=>{const d=document.createElement('div');d.className='cell '+(i===0?(norm(g.name)===norm(answer.name)?'ok':'no'):feedback(g,k));const l=document.createElement('div');l.className='label';l.textContent=labels[i];const v=document.createElement('div');v.className='value';v.textContent=k==='book'?appearanceLabel(g.book):g[k];d.append(l,v);row.append(d)});const h=document.getElementById('history');if(tries===1)h.innerHTML='';h.prepend(row);update();input.value='';suggest.style.display='none';if(norm(g.name)===norm(answer.name)){finish(true)}else if(tries>=10){finish(false)}}
+function addGuess(g){if(done)return;if(used.includes(g.name)){input.value='';return;}used.push(g.name);tries++;const keys=['name','species','gender','house','blood','aff','book'];const row=document.createElement('div');row.className='guess';keys.forEach((k,i)=>{const d=document.createElement('div');d.className='cell '+(i===0?(norm(g.name)===norm(answer.name)?'ok':'no'):feedback(g,k));const l=document.createElement('div');l.className='label';l.textContent=labels[i];const v=document.createElement('div');v.className='value';v.textContent=k==='book'?appearanceLabel(g.book):g[k];d.append(l,v);row.append(d)});const h=document.getElementById('history');if(tries===1)h.innerHTML='';h.prepend(row);update();input.value='';suggest.style.display='none';if(norm(g.name)===norm(answer.name)){finish(true)}else if(tries>=20){finish(false)}}
 function finish(win){done=true;input.disabled=true;document.getElementById('guessBtn').disabled=true;const r=document.getElementById('result');r.style.display='block';document.getElementById('resultTitle').textContent=win?'✨ YOU GOT IT!':'ROUND OVER';document.getElementById('resultText').textContent=win?`You found ${answer.name} in ${tries} ${tries===1?'guess':'guesses'}.`:`The character was ${answer.name}. First appearance: ${appearanceLabel(answer.book)}.`;document.getElementById('attempts').textContent=win?'CHARACTER IDENTIFIED':'NO GUESSES LEFT';}
 function renderSuggestions(){const q=norm(input.value);if(!q||done){suggest.style.display='none';return;}const matches=roster.filter(c=>norm(c.name).includes(q)&&!used.includes(c.name)).slice(0,8);suggest.innerHTML='';matches.forEach(c=>{const b=document.createElement('button');b.textContent=c.name;b.onclick=()=>addGuess(c);suggest.append(b)});suggest.style.display=matches.length?'block':'none';}
 input.addEventListener('input',renderSuggestions);input.addEventListener('keydown',e=>{if(e.key==='Enter'){const exact=roster.find(c=>norm(c.name)===norm(input.value));if(exact)addGuess(exact);else{const first=roster.find(c=>norm(c.name).includes(norm(input.value))&&!used.includes(c.name));if(first)addGuess(first)}}if(e.key==='Escape')suggest.style.display='none';});
