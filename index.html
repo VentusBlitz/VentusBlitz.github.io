@@ -14,7 +14,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;ba
 .gamehead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.gamehead h2{font:600 17px Orbitron;margin:0}.attempts{color:var(--cyan);font:600 12px Orbitron}.progress{height:6px;background:#30203f;border-radius:9px;margin:16px 0 20px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--violet),var(--pink));width:0%;transition:.25s}
 .searchrow{display:flex;gap:10px}.searchbox{position:relative;flex:1}.searchbox input{width:100%;background:#0c0817;border:1px solid #54346f;border-radius:10px;padding:14px 15px;color:white;font:600 17px Rajdhani;outline:none}.searchbox input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #45eaff17}.btn{border:0;border-radius:10px;padding:12px 20px;background:linear-gradient(110deg,#913de0,#df42bb);color:white;font:700 13px Orbitron;cursor:pointer;box-shadow:0 5px 18px #a02ddd44}.btn:hover{filter:brightness(1.15)}.btn:disabled{opacity:.45;cursor:not-allowed}.suggest{display:none;position:absolute;z-index:5;top:calc(100% + 5px);left:0;right:0;background:#160d25;border:1px solid #66417e;border-radius:10px;max-height:220px;overflow:auto;box-shadow:0 10px 30px #000}.suggest button{display:block;width:100%;padding:9px 12px;text-align:left;background:none;border:0;color:#f4eaff;font:600 16px Rajdhani;cursor:pointer}.suggest button:hover{background:#342047}
 .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin:15px 0}.dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px}.green{background:var(--green)}.yellow{background:var(--yellow)}.red{background:var(--red)}
-.guess{display:grid;grid-template-columns:1.2fr repeat(6,1fr);gap:6px;margin:8px 0}.cell{min-width:0;text-align:center;background:#21172f;border:1px solid #443052;border-radius:8px;padding:9px 5px;overflow-wrap:anywhere}.cell .label{display:none;color:#b9a6cc;font:500 9px Orbitron;letter-spacing:.4px;margin-bottom:5px}.cell .value{font-size:14px;font-weight:700}.cell.ok{background:#0d3a31;border-color:#2ba77b}.cell.partial{background:#493717;border-color:#b48b36}.cell.no{background:#421c31;border-color:#a34468}.headerrow .cell{background:transparent;border:0;color:#a99bbd;font:600 9px Orbitron;letter-spacing:.5px;padding:4px 2px}.headerrow .cell:first-child{text-align:left}.history{margin-top:18px}.empty{text-align:center;color:#88799c;padding:28px 8px;border:1px dashed #49345c;border-radius:12px}.result{display:none;text-align:center;padding:20px;border-radius:12px;margin-top:18px;background:#201333;border:1px solid #71469a}.result h3{font:700 21px Orbitron;margin:0 0 8px;color:var(--green)}.result p{margin:0;color:#d2c3e1}.foot{color:#786b8b;text-align:center;font-size:13px;margin-top:24px}.hidden{display:none!important}
+.guess{display:grid;grid-template-columns:1.2fr repeat(6,1fr);gap:6px;margin:8px 0}.cell{min-width:0;text-align:center;background:#21172f;border:1px solid #443052;border-radius:8px;padding:9px 5px;overflow-wrap:anywhere}.cell .label{display:block;color:#b9a6cc;font:500 9px Orbitron;letter-spacing:.4px;margin-bottom:5px}.cell .value{font-size:14px;font-weight:700}.cell.ok{background:#0d3a31;border-color:#2ba77b}.cell.partial{background:#493717;border-color:#b48b36}.cell.no{background:#421c31;border-color:#a34468}.headerrow .cell{background:transparent;border:0;color:#a99bbd;font:600 9px Orbitron;letter-spacing:.5px;padding:4px 2px}.headerrow .cell:first-child{text-align:left}.history{margin-top:18px}.empty{text-align:center;color:#88799c;padding:28px 8px;border:1px dashed #49345c;border-radius:12px}.result{display:none;text-align:center;padding:20px;border-radius:12px;margin-top:18px;background:#201333;border:1px solid #71469a}.result h3{font:700 21px Orbitron;margin:0 0 8px;color:var(--green)}.result p{margin:0;color:#d2c3e1}.foot{color:#786b8b;text-align:center;font-size:13px;margin-top:24px}.hidden{display:none!important}
 @media(max-width:700px){.wrap{padding:18px 12px 40px}.franchises{grid-template-columns:1fr}.franchise{display:flex;align-items:center;gap:12px}.franchise .icon{font-size:24px}.franchise strong{margin:0 0 4px}.franchise .status{margin:0 0 0 auto}.panel{padding:15px}.guess{grid-template-columns:1.1fr repeat(3,1fr)}.headerrow{display:none}.cell .label{display:block}.cell .value{font-size:13px}.guess{margin-bottom:10px}.searchrow{flex-direction:column}.btn{width:100%}}
 </style></head>
 <body><main class="wrap">
@@ -33,7 +33,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;ba
 <div class="history" id="history"><div class="empty">Your guesses will appear here.<br>Choose wisely — you only have twenty.</div></div>
 <div class="result" id="result"><h3 id="resultTitle"></h3><p id="resultText"></p><button class="btn" id="restart" style="margin-top:15px">PLAY ANOTHER ROUND</button></div>
 </section>
-<p class="foot">CHARACTERGUESSER · A FAN-MADE TRIVIA GAME · HARRY POTTER NOVELS + FANTASTIC BEASTS FILMS</p>
+<p class="foot">CHARACTERGUESSER · A FAN-MADE TRIVIA GAME BY VENTUSBLITZ</p>
 </main>
 <script>
 const books=["Harry Potter and the Philosopher's Stone","Harry Potter and the Chamber of Secrets","Harry Potter and the Prisoner of Azkaban","Harry Potter and the Goblet of Fire","Harry Potter and the Order of the Phoenix","Harry Potter and the Half-Blood Prince","Harry Potter and the Deathly Hallows"];
@@ -169,7 +169,6 @@ const characters=[
 ["Yvonne","Human","Female","None","Muggle","Dursley family acquaintance",1],
 ["Marge Dursley","Human","Female","None","Muggle","Dursley family",3],
 ["Colonel Fubster","Human","Male","None","Muggle","Marge Dursley's neighbour",3],
-["Mrs Figg","Squib","Female","None","Unknown","Order of the Phoenix",1],
 ["Mr Borgin","Human","Male","Unknown","Unknown","Borgin and Burkes",2],
 ["Caractacus Burke","Human","Male","Unknown","Unknown","Borgin and Burkes",6],
 ["Tom (Leaky Cauldron landlord)","Human","Male","Unknown","Unknown","Leaky Cauldron",1],
@@ -215,13 +214,9 @@ const characters=[
 ["Rose Zeller","Human","Female","Hufflepuff","Unknown","Hogwarts",5],
 ["Ernie Prang","Human","Male","Unknown","Unknown","Knight Bus",3],
 ["Madam Marsh","Human","Female","Unknown","Unknown","Knight Bus passenger",3],
-["Blaise's mother","Human","Female","Unknown","Unknown","Zabini family",6],
 ["Eloise Midgen","Human","Female","Unknown","Unknown","Hogwarts",4],
-["Myrtle Warren","Ghost","Female","Ravenclaw","Muggle-born","Hogwarts",2],
 ["Sir Patrick Delaney-Podmore","Ghost","Male","Unknown","Not applicable","Headless Hunt",2],
-["Sir Nicholas de Mimsy-Porpington","Ghost","Male","Gryffindor","Not applicable","Hogwarts",1],
 ["The Fat Friar","Ghost","Male","Hufflepuff","Not applicable","Hogwarts",1],
-["The Grey Lady (Helena Ravenclaw)","Ghost","Female","Ravenclaw","Not applicable","Hogwarts",1],
 ["The Bloody Baron","Ghost","Male","Slytherin","Not applicable","Hogwarts",1],
 ["Sir Cadogan","Portrait","Male","Unknown","Not applicable","Hogwarts portraits",3],
 ["Violet (portrait)","Portrait","Female","Unknown","Not applicable","Hogwarts portraits",3],
@@ -278,7 +273,6 @@ const characters=[
 ["Mafalda (Weasley cousin)","Human","Female","Unknown","Unknown","Weasley family (planned impersonation)",4],
 ["Ted Tonks","Human","Male","Unknown","Muggle-born","Tonks family; Order sympathiser",7],
 ["Doris Purkiss","Human","Female","Unknown","Unknown","Muggle; mentioned in Daily Prophet context",4],
-["Gellert Grindelwald (young)","Human","Male","Unknown","Half-blood","Global wizarding movement",7],
 ["Antioch Peverell","Human","Male","Unknown","Unknown","Peverell family; Deathly Hallows legend",7],
 ["Cadmus Peverell","Human","Male","Unknown","Unknown","Peverell family; Deathly Hallows legend",7],
 ["Ignotus Peverell","Human","Male","Unknown","Unknown","Peverell family; Deathly Hallows legend",7],
@@ -289,13 +283,10 @@ const characters=[
 ["Augusta Longbottom","Human","Female","Unknown","Pure-blood","Longbottom family",1],
 ["Great-Aunt Muriel","Human","Female","Unknown","Pure-blood","Weasley family",4],
 ["Bilius Weasley","Human","Male","Unknown","Pure-blood","Weasley family",4],
-["Fleur's grandmother","Veela","Female","None","Not applicable","Delacour family",4],
 ["Gabrielle Delacour","Human (part-Veela)","Female","None (Beauxbatons)","Unknown","Delacour family",4],
-["Vernon Dursley's sister","Human","Female","None","Muggle","Dursley family",1],
 ["Mr Mason","Human","Male","None","Muggle","Dursley dinner guests",2],
 ["Mrs Mason","Human","Female","None","Muggle","Dursley dinner guests",2],
 ["Dennis (Dursley neighbour)","Human","Male","None","Muggle","Dursley neighbourhood",1],
-["Grindelwald's victim Gregorovitch","Human","Male","Unknown","Unknown","Wandmaker",7],
 ["Miriam Strout","Human","Female","Unknown","Unknown","St Mungo's Healer",5],
 ["Broderick Bode","Human","Male","Unknown","Unknown","Department of Mysteries",5],
 ["Arthur Weasley's co-worker Perkins","Human","Male","Unknown","Unknown","Ministry of Magic",5],
@@ -305,7 +296,6 @@ const characters=[
 ["Savage","Human","Male","Unknown","Unknown","Auror",4],
 ["Mafalda Hopkirk","Human","Female","Unknown","Unknown","Ministry of Magic",5],
 ["Bob Ogden","Human","Male","Unknown","Unknown","Department of Magical Law Enforcement",6],
-["Hepzibah Smith's house-elf","House-elf","Unknown","None","Not applicable","Smith household",6],
 ["Eileen Prince","Human","Female","Slytherin","Half-blood","Prince family",6],
 ["Mr Prince","Human","Male","Unknown","Unknown","Prince family",6],
 ["Damocles Belby","Human","Male","Unknown","Unknown","Wizarding potion-maker",6],
@@ -317,21 +307,19 @@ const characters=[
 ["Quentin Trimble","Human","Male","Unknown","Unknown","Defence Against the Dark Arts author",1],
 ["Wilbert Slinkhard","Human","Male","Unknown","Unknown","Defence Against the Dark Arts author",5],
 ["Vindictus Viridian","Human","Male","Unknown","Unknown","Dark Arts textbook author",1],
+["Charity Burbage","Human","Female","Unknown","Unknown","Hogwarts staff; Muggle Studies Professor",7],
 ["Newt Scamander","Human","Male","Hufflepuff","Unknown","Magizoologist; textbook author",1],
-["Gilderoy Lockhart's mother","Human","Female","Unknown","Unknown","Lockhart family",2],
 ["Mopsy Fleabert","Human","Female","Unknown","Unknown","Wizarding author",3],
 ["Herman Wintringham","Human","Male","Unknown","Unknown","Wizarding historical figure",3],
 ["Barnabas the Barmy","Human","Male","Unknown","Unknown","Wizarding historical figure",5],
 ["Ignatia Wildsmith","Human","Female","Unknown","Unknown","Floo Powder inventor",4],
 ["Felix Summerbee","Human","Male","Unknown","Unknown","Cheering Charm inventor",4],
 ["Chauncey Oldridge","Human","Male","Unknown","Unknown","Wizard card subject",1],
-["Cornelius Agrippa","Human","Male","Unknown","Unknown","Wizard card subject",1],
 ["Babayaga","Human","Female","Unknown","Unknown","Witch from wizarding folklore",4],
 ["Mungo Bonham","Human","Male","Unknown","Unknown","St Mungo's founder",5],
 ["Mirabella Plunkett","Human","Female","Unknown","Unknown","Wizarding historical figure",4],
 ["Dunbar Oglethorpe","Human","Male","Unknown","Unknown","Quidditch official",4],
 ["Harpies' captain Gwenog Jones","Human","Female","Unknown","Unknown","Holyhead Harpies",4],
-["Hengist","Human","Male","Hufflepuff","Unknown","Hogsmeade founder",4],
 ["Mungo Bonham","Human","Male","Unknown","Unknown","St Mungo's founder",5],
 ["Ethelred the Ever-Ready","Human","Male","Unknown","Unknown","Wizard card subject",1],
 ["Blodwyn Bludd","Human","Female","Unknown","Unknown","Wizarding historical figure",4],
@@ -355,9 +343,7 @@ const characters=[
 ["Mopsus","Human","Male","Unknown","Unknown","Seer; wizarding historical figure",4],
 ["Dumbledore's mother Kendra","Human","Female","Unknown","Muggle-born","Dumbledore family",5],
 ["Percival Dumbledore","Human","Male","Unknown","Unknown","Dumbledore family",5],
-["Gellert Grindelwald's aunt Bathilda","Human","Female","Unknown","Unknown","Bagshot family",7],
 ["Apollyon Pringle","Human","Male","Unknown","Unknown","Hogwarts caretaker (historical)",1],
-["Dobby's friend Winky","House-elf","Female","None","Not applicable","Crouch family",4],
 ["Hagrid's father","Human","Male","Unknown","Unknown","Hagrid family",4],
 ["Hagrid's mother Fridwulfa","Giant","Female","None","Not applicable","Giant community; Hagrid family",4],
 ["Grawp","Giant","Male","None","Not applicable","Giant community; Hagrid's half-brother",5],
@@ -370,9 +356,7 @@ const characters=[
 ["Ronan","Centaur","Male","None","Not applicable","Forbidden Forest herd",1],
 ["Magorian","Centaur","Male","None","Not applicable","Forbidden Forest herd",5],
 ["Firenze's father","Centaur","Male","None","Not applicable","Centaur herd",5],
-["Grawp's friend Hagrid","Half-giant","Male","Gryffindor","Unknown","Hogwarts; Order of the Phoenix",1],
 ["Aragog's wife Mosag","Acromantula","Female","None","Not applicable","Forbidden Forest",2],
-["Shelob?","Unknown","Unknown","Unknown","Unknown","Not applicable",7],
 ["Tina Goldstein","Human","Female","Unknown","Unknown","MACUSA; Auror Office; Newt Scamander's allies","Fantastic Beasts and Where to Find Them (film)"],
 ["Jacob Kowalski","Human","Male","None","Muggle","Kowalski Bakery; Newt Scamander's allies; Dumbledore's team","Fantastic Beasts and Where to Find Them (film)"],
 ["Queenie Goldstein","Human","Female","Unknown","Unknown","MACUSA; Grindelwald's acolytes (formerly); Newt Scamander's allies","Fantastic Beasts and Where to Find Them (film)"],
@@ -458,8 +442,8 @@ const input=document.getElementById('guessInput'),suggest=document.getElementByI
 const labels=["Character","Species","Gender","House","Blood status","Affiliations","First appearance"];
 function start(){tries=0;done=false;used=[];answer=roster[Math.floor(Math.random()*roster.length)];document.getElementById('history').innerHTML='<div class="empty">Your guesses will appear here.<br>Choose wisely — you only have twenty.</div>';document.getElementById('result').style.display='none';input.disabled=false;document.getElementById('guessBtn').disabled=false;input.value='';update();}
 function update(){document.getElementById('attempts').textContent=(20-tries)+' GUESSES REMAINING';document.getElementById('bar').style.width=(tries*5)+'%';}
-function feedback(guess,key){const a=guess[key],b=answer[key];if(a===b)return 'ok';if(key==='aff' && a.split('; ').some(x=>b.split('; ').includes(x)))return 'partial';if(key==='book' && typeof a==='number' && typeof b==='number' && Math.abs(a-b)===1)return 'partial';if(key==='house' && (a==='Unknown'||b==='Unknown'))return 'partial';if(key==='blood' && (a==='Unknown'||b==='Unknown'||a==='Not applicable'||b==='Not applicable'))return 'partial';if(key==='gender'&&(a==='Unknown'||b==='Unknown'))return 'partial';return 'no';}
-function addGuess(g){if(done)return;if(used.includes(g.name)){input.value='';return;}used.push(g.name);tries++;const keys=['name','species','gender','house','blood','aff','book'];const row=document.createElement('div');row.className='guess';keys.forEach((k,i)=>{const d=document.createElement('div');d.className='cell '+(i===0?(norm(g.name)===norm(answer.name)?'ok':'no'):feedback(g,k));const l=document.createElement('div');l.className='label';l.textContent=labels[i];const v=document.createElement('div');v.className='value';v.textContent=k==='book'?appearanceLabel(g.book):g[k];d.append(l,v);row.append(d)});const h=document.getElementById('history');if(tries===1)h.innerHTML='';h.prepend(row);update();input.value='';suggest.style.display='none';if(norm(g.name)===norm(answer.name)){finish(true)}else if(tries>=20){finish(false)}}
+function feedback(guess,key){const a=guess[key],b=answer[key];if(key==='aff' && a.split('; ').some(x=>b.split('; ').includes(x)))return 'partial';if(a===b)return 'ok';if(key==='book' && typeof a==='number' && typeof b==='number' && Math.abs(a-b)===1)return 'partial';if(key==='house' && (a==='Unknown'||b==='Unknown'))return 'partial';if(key==='blood' && (a==='Unknown'||b==='Unknown'||a==='Not applicable'||b==='Not applicable'))return 'partial';if(key==='gender'&&(a==='Unknown'||b==='Unknown'))return 'partial';return 'no';}
+function addGuess(g){if(done)return;if(used.includes(g.name)){input.value='';return;}used.push(g.name);tries++;const keys=['name','species','gender','house','blood','aff','book'];const row=document.createElement('div');row.className='guess';keys.forEach((k,i)=>{const d=document.createElement('div');d.className='cell '+(i===0?(norm(g.name)===norm(answer.name)?'ok':'no'):feedback(g,k));const l=document.createElement('div');l.className='label';l.textContent=labels[i];const v=document.createElement('div');v.className='value';if(k==='book'){v.textContent=appearanceLabel(g.book);}else if(k==='aff'){const guessed=g.aff.split('; ').map(x=>x.trim());const target=new Set(answer.aff.split('; ').map(x=>x.trim()));const matched=guessed.filter(x=>target.has(x));if(matched.length){d.classList.remove('ok','no');d.classList.add('partial');guessed.forEach((item,j)=>{if(j)v.append(document.createTextNode('; '));const part=document.createElement(matched.includes(item)?'strong':'span');part.textContent=item;v.append(part);});}else{v.textContent=g.aff;}}else{v.textContent=g[k];}d.append(l,v);row.append(d)});const h=document.getElementById('history');if(tries===1)h.innerHTML='';h.prepend(row);update();input.value='';suggest.style.display='none';if(norm(g.name)===norm(answer.name)){finish(true)}else if(tries>=20){finish(false)}}
 function finish(win){done=true;input.disabled=true;document.getElementById('guessBtn').disabled=true;const r=document.getElementById('result');r.style.display='block';document.getElementById('resultTitle').textContent=win?'✨ YOU GOT IT!':'ROUND OVER';document.getElementById('resultText').textContent=win?`You found ${answer.name} in ${tries} ${tries===1?'guess':'guesses'}.`:`The character was ${answer.name}. First appearance: ${appearanceLabel(answer.book)}.`;document.getElementById('attempts').textContent=win?'CHARACTER IDENTIFIED':'NO GUESSES LEFT';}
 function renderSuggestions(){const q=norm(input.value);if(!q||done){suggest.style.display='none';return;}const matches=roster.filter(c=>norm(c.name).includes(q)&&!used.includes(c.name)).slice(0,8);suggest.innerHTML='';matches.forEach(c=>{const b=document.createElement('button');b.textContent=c.name;b.onclick=()=>addGuess(c);suggest.append(b)});suggest.style.display=matches.length?'block':'none';}
 input.addEventListener('input',renderSuggestions);input.addEventListener('keydown',e=>{if(e.key==='Enter'){const exact=roster.find(c=>norm(c.name)===norm(input.value));if(exact)addGuess(exact);else{const first=roster.find(c=>norm(c.name).includes(norm(input.value))&&!used.includes(c.name));if(first)addGuess(first)}}if(e.key==='Escape')suggest.style.display='none';});
