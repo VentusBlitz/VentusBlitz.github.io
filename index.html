@@ -22,7 +22,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;ba
 <section class="hero"><div class="eyebrow">ONE CHARACTER · TWENTY GUESSES</div><h1>GUESS THE CHARACTER</h1><p>How well do you really know your favourite worlds?</p></section>
 <section class="panel"><div class="eyebrow">SELECT YOUR FRANCHISE</div><div class="franchises">
 <button class="franchise active" id="hpBtn"><span class="icon">✦</span><span><strong>Wizarding World</strong><small>Novels and the Fantastic Beasts Films</small></span></button>
-<button class="franchise" id="meBtn"><span class="icon">⚔</span><span><strong>Middle-Earth</strong><small>Tolkien’s legendarium · All Ages</small></span></button>
+<button class="franchise" id="meBtn"><span class="icon">⚔</span><span><strong>Middle-Earth</strong><small>Tolkien’s published legendarium · Curated canon roster</small></span></button>
 <button class="franchise" disabled><span class="icon">♜</span><span><strong>A Song of Ice and Fire</strong><small>Seven Kingdoms and beyond</small></span><span class="status soon">WORK IN PROGRESS</span></button>
 </div></section>
 <section class="panel" id="game">
@@ -439,7 +439,7 @@ const middleEarthRows=[["Eru Ilúvatar","Ainur (Creator)","Not applicable","Time
 const middleEarthRoster=middleEarthRows.map(r=>({name:r[0],race:r[1],gender:r[2],realm:r[3],lineage:r[4],aff:r[5],age:r[6],work:r[7],aliases:r[8]||[]}));
 const universeConfig={
  wizarding:{title:'✦ WIZARDING WORLD CHALLENGE',keys:['name','species','gender','house','blood','aff','book'],labels:['Character','Species','Gender','House','Blood status','Affiliations','First appearance'],roster:wizardingRoster,description:'First appearance shows the full Harry Potter book title or the Fantastic Beasts film title.'},
- middleEarth:{title:'⚔ MIDDLE-EARTH CHALLENGE',keys:['name','race','gender','realm','lineage','aff','age','work'],labels:['Character','Race / Being','Gender','Realm / Origin','House / Lineage','Affiliations','Age','First appearance'],roster:middleEarthRoster,description:'Built from Tolkien’s published legendarium; alternate names resolve to one character. Adaptation-only and fan-created characters are excluded; Tolkien’s variant texts can differ.'}
+ middleEarth:{title:'⚔ MIDDLE-EARTH CHALLENGE',keys:['name','race','gender','realm','lineage','aff','age','work'],labels:['Character','Race / Being','Gender','Realm / Origin','House / Lineage','Affiliations','Age','First appearance'],roster:middleEarthRoster,description:'A curated roster of characters from Tolkien’s published legendarium. Alternate names resolve to one character; adaptation-only and fan-created characters are excluded. Tolkien’s variant texts and obscure references mean this roster is not claimed to be exhaustive.'}
 };
 let activeUniverse='wizarding',config=universeConfig.wizarding,roster=config.roster,labels=config.labels,keys=config.keys,maxGuesses=20;
 function appearanceLabel(value){return typeof value==='number'?books[value-1]:value;}
